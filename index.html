@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Vibe - AI 주식 리포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a; --surface: rgba(255,255,255,0.06); --border: rgba(255,255,255,0.1);
+            --primary: #4facfe; --secondary: #00f2fe; --accent: #f43f5e; --text: #f1f5f9; --text-dim: #94a3b8;
+        }
+        body { font-family: 'Pretendard', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+        .container { max-width: 680px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; }
+        .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .timestamp { font-size: 0.8rem; color: var(--text-dim); margin-top: 10px; }
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin-bottom: 20px; }
+        .section-title { font-size: 1.1rem; font-weight: 700; margin: 25px 0 15px; color: var(--secondary); }
+        .stock-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin-bottom: 12px; }
+        .stock-card-top { display: flex; justify-content: space-between; align-items: flex-start; }
+        .stock-name { font-size: 1.1rem; font-weight: 700; }
+        .stock-code { font-size: 0.8rem; color: var(--text-dim); }
+        .score-chip { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #0f172a; padding: 4px 10px; border-radius: 99px; font-weight: 800; font-size: 0.75rem; }
+        .price-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 15px 0; }
+        .price-label { font-size: 0.7rem; color: var(--text-dim); display: block; }
+        .price-value { font-size: 1rem; font-weight: 700; }
+        .price-value.target { color: var(--primary); }
+        .price-value.stop { color: var(--accent); }
+        .divider { height: 1px; background: var(--border); margin: 15px 0; }
+        .info-label { font-size: 0.75rem; color: var(--secondary); font-weight: 700; display: block; margin-bottom: 4px; }
+        .info-text { font-size: 0.85rem; line-height: 1.5; }
+        footer { text-align: center; font-size: 0.7rem; color: var(--text-dim); margin-top: 40px; opacity: 0.6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Stock Vibe AI Report</div>
+            <div class="timestamp">분석 시각: 2026-05-01 14:19:48</div>
+        </header>
+
+        <section class="card">
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--secondary); margin-bottom: 10px;">MARKET SUMMARY</div>
+            <div style="line-height: 1.6; font-size: 0.95rem;">현재 한국 주식 시장의 주요 트렌드는 반도체 업황 개선 기대감으로 인한 관련주 수급 증가와 미국 금리 인하 기대감으로 성장주가 반등하고 있다. 또한 2차전지 섹터에서는 차별화된 기업들이 장세를 지속하고 있으며, 인공지능(AI) 관련 소프트웨어 기업들은 실적 개선세를 보이고 있다. 이러한 트렌드들은 한국 주식 시장에서 기술과 성장에 대한 관심이 집중되고 있음을 나타낸다.</div>
+        </section>
+
+        <div class="section-title">💡 파트 1: 현 시장 트렌드 주도주</div>
+        
+            <div class="stock-card">
+                <div class="stock-card-top">
+                    <div>
+                        <div class="stock-name">1. 서울반도체</div>
+                        <div class="stock-code">046890</div>
+                    </div>
+                    <span class="score-chip">73<span class="score-max">점</span></span>
+                </div>
+                <div class="price-row">
+                    <div class="price-item">
+                        <span class="price-label">현재가</span>
+                        <span class="price-value">16,510</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">목표가</span>
+                        <span class="price-value target">17,830</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">손절가</span>
+                        <span class="price-value stop">15,684</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="info-block">
+                    <div class="info-row">
+                        <span class="info-label">추천 이유</span>
+                        <span class="info-text">[단타/스캘핑] 당일 거래량 3.3배 폭증 및 돌파, 단기 모멘텀 강세.</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">매수 시점</span>
+                        <span class="info-text">시초가 또는 거래량 동반 저항선 돌파 시 추격 매수 (빠른 손절 필수)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stock-card">
+                <div class="stock-card-top">
+                    <div>
+                        <div class="stock-name">2. 폴라리스AI</div>
+                        <div class="stock-code">039980</div>
+                    </div>
+                    <span class="score-chip">72<span class="score-max">점</span></span>
+                </div>
+                <div class="price-row">
+                    <div class="price-item">
+                        <span class="price-label">현재가</span>
+                        <span class="price-value">9,300</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">목표가</span>
+                        <span class="price-value target">10,044</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">손절가</span>
+                        <span class="price-value stop">8,835</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="info-block">
+                    <div class="info-row">
+                        <span class="info-label">추천 이유</span>
+                        <span class="info-text">5일 평균 대비 거래량 40.3배 급증, 세력 개입 가능성.</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">매수 시점</span>
+                        <span class="info-text">현재가 부근 분할 매수</span>
+                    </div>
+                </div>
+            </div>
+            
+
+        <div class="section-title">📊 파트 2: 실시간 수급/차트 우량주</div>
+        
+            <div class="stock-card">
+                <div class="stock-card-top">
+                    <div>
+                        <div class="stock-name">1. 해성옵틱스</div>
+                        <div class="stock-code">076610</div>
+                    </div>
+                    <span class="score-chip">78<span class="score-max">점</span></span>
+                </div>
+                <div class="price-row">
+                    <div class="price-item">
+                        <span class="price-label">현재가</span>
+                        <span class="price-value">1,739</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">목표가</span>
+                        <span class="price-value target">1,878</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">손절가</span>
+                        <span class="price-value stop">1,652</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="info-block">
+                    <div class="info-row">
+                        <span class="info-label">추천 이유</span>
+                        <span class="info-text">5일 이동평균선 상향 돌파로 단기 추세 전환 신호. MACD 골든크로스 발생, 상승 모멘텀 강화.</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">매수 시점</span>
+                        <span class="info-text">5일 이동평균선을 상향 돌파하는 시점에서 분할 매수</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stock-card">
+                <div class="stock-card-top">
+                    <div>
+                        <div class="stock-name">2. KBI메탈</div>
+                        <div class="stock-code">024840</div>
+                    </div>
+                    <span class="score-chip">77<span class="score-max">점</span></span>
+                </div>
+                <div class="price-row">
+                    <div class="price-item">
+                        <span class="price-label">현재가</span>
+                        <span class="price-value">5,100</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">목표가</span>
+                        <span class="price-value target">5,508</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">손절가</span>
+                        <span class="price-value stop">4,845</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="info-block">
+                    <div class="info-row">
+                        <span class="info-label">추천 이유</span>
+                        <span class="info-text">[단타/스캘핑] 당일 거래량 3.8배 폭증 및 돌파, 단기 모멘텀 강세. [종가배팅] 당일 장대양봉 유지 또는 5일선 지지 횡보, 익일 상승 기대.</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">매수 시점</span>
+                        <span class="info-text">오후 3시~3시 20분(동시호가) 매수, 익일 9시 갭상승 시 즉각 매도</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stock-card">
+                <div class="stock-card-top">
+                    <div>
+                        <div class="stock-name">3. 쏠리드</div>
+                        <div class="stock-code">050890</div>
+                    </div>
+                    <span class="score-chip">76<span class="score-max">점</span></span>
+                </div>
+                <div class="price-row">
+                    <div class="price-item">
+                        <span class="price-label">현재가</span>
+                        <span class="price-value">17,110</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">목표가</span>
+                        <span class="price-value target">18,478</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">손절가</span>
+                        <span class="price-value stop">16,254</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="info-block">
+                    <div class="info-row">
+                        <span class="info-label">추천 이유</span>
+                        <span class="info-text">5일 이동평균선 상향 돌파로 단기 추세 전환 신호. [단타/스캘핑] 당일 거래량 6.6배 폭증 및 돌파, 단기 모멘텀 강세.</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">매수 시점</span>
+                        <span class="info-text">5일 이동평균선을 상향 돌파하는 시점에서 분할 매수</span>
+                    </div>
+                </div>
+            </div>
+            
+
+        <div class="section-title">🔍 파트 3: 최우선 추천종목 딥다이브</div>
+        <section class="card">
+            <div style="line-height: 1.6; font-size: 0.9rem;">[서울반도체 심층 분석]<br>### 투자 테제 (Investment Thesis)<br><br>046890의 투자 가치는 최근 몇 년간의 재무 데이터를 통해 분석할 수 있습니다. 매출액은 2022년과 2024년에 증가하는 추세를 보이지만, 영업이익률과 ROE는 음수로 유지되고 있어 회사 내부의 이익 구조에 대한 우려가 있습니다. 또한, 부채비율은 2025년에 감소했지만, 여전히 회사 재무의 안정성에 대한 우려를 낳습니다.<br><br>현재 제공된 데이터로는 P/E, P/B, P/S, EV/EBITDA와 같은 주요 배수 지표가 없기 때문에 정확한 가치 평가가 어려우나, 영업이익률과 ROE의 부정적인 추세는 투자에 대한 신중한 접근을 요구합니다. 따라서, 현재의 재무 상태와 성장성에 대한 불확실성으로 인해 보유 또는 매도 의견이 우세할 수 있습니다.<br><br>향후 성장성은 매출액의 증가와 함께 영업이익률과 ROE의 개선에 달려 있습니다. 만약 회사 내부의 구조적 문제를 해결하고, 이익을 개선할 수 있다면, 투자 가치가 상승할 수 있습니다. 그러나 현재까지의 데이터는 이러한 전망에 대한 불확실성을 나타냅니다.<br><br>### 위험 분석 (Risk Analysis)<br><br>046890의 핵심 위험 요인은 다음과 같습니다. <br>첫째, 영업이익률과 ROE의 부정적인 추세는 회사 내부의 이익 구조에 대한 심각한 우려를 낳습니다. 이는 회사 내부의 비용 구조나 경쟁력에 대한 문제를 나타낼 수 있습니다.<br><br>둘째, 부채비율의 변동은 회사 재무의 안정성에 대한 우려를 낳습니다. 부채비율이 높은 경우, 금리 상승이나 경제 불황 시에 회사에 대한 부담이 증가할 수 있습니다.<br><br>셋째, 제공된 데이터의 한계로 인해 정확한 가치 평가가 어려우나, 이는 투자자에게 불확실성을 가져올 수 있습니다. 투자자들은 더 많은 정보와 데이터를 필요로 하며, 이러한 정보의 부족은 투자 의사 결정에 대한 위험을 증가시킵니다.</div>
+        </section>
+
+        <footer>
+            ※ 본 정보는 AI 분석 결과이며 투자 책임은 투자자 본인에게 있습니다.
+        </footer>
+    </div>
+</body>
+</html>
+        
